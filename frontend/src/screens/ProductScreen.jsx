@@ -14,7 +14,7 @@ const ProductScreen = () => {
       setProduct(data)
     }
 
-    fetchProduct()
+    fetchProduct( )
   }, [productId])
 
   return (
