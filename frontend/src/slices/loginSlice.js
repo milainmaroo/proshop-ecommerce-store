@@ -10,6 +10,7 @@ const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
+    // save the user in localStorage after login
     setCredentials: (state, action) => {
       state.userInfo = action.payload
       localStorage.setItem('userInfo', JSON.stringify(action.payload))
