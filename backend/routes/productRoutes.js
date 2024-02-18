@@ -5,6 +5,7 @@ import {
   getProductById,
   createProduct,
   updateProduct,
+  deleteProduct,
 } from '../controllers/productController.js'
 import checkObjectId from '../middleware/checkObjectId.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
@@ -17,5 +18,6 @@ router
   .route('/:id')
   .get(checkObjectId, getProductById)
   .put(protect, admin, updateProduct)
+  .delete(protect, admin, deleteProduct)
 
 export default router
