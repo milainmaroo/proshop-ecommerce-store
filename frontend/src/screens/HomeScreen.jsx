@@ -13,7 +13,14 @@ const HomeScreen = () => {
   const { data, isLoading, error } = useGetProductsQuery({ keyword, pageNumber })
 
   return (
-    <div>
+    <>
+      {
+        keyword &&
+          <Link to='/' className='btn btn-light mb-4'>
+            Go Back
+          </Link>
+      
+      }
       { isLoading ? (
         <Loader />
       ) : error ? (
@@ -32,7 +39,7 @@ const HomeScreen = () => {
         </>
       )}
 
-    </div>
+    </>
   )
 }
 
