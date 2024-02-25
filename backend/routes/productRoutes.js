@@ -21,10 +21,10 @@ router.get('/top', getTopProducts)
 router
   .route('/:id')
   .get(checkObjectId, getProductById)
-  .put(protect, admin, updateProduct)
-  .delete(protect, admin, deleteProduct)
+  .put(protect, admin, checkObjectId, updateProduct)
+  .delete(protect, admin, checkObjectId, deleteProduct)
 
 // Product Review Route
-router.route('/:id/reviews').post(protect, createProductReview)
+router.route('/:id/reviews').post(protect, checkObjectId, createProductReview)
 
 export default router

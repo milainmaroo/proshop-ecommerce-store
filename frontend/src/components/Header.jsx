@@ -7,6 +7,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import logo from '../assets/logo.png'
 import { useLogoutMutation } from '../slices/usersApiSlice'
 import { logout } from '../slices/loginSlice'
+import { resetCart } from '../slices/cartSlice'
 import SearchBox from './SearchBox'
 
 const Header = () => {
@@ -24,6 +25,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap()
       dispatch(logout())
+      dispatch(resetCart())
       navigate('/login')
     } catch (error) {
       console.log(error)
