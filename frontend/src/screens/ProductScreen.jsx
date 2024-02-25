@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import { useGetProductDetailsQuery, useCreateReviewMutation } from '../slices/productsApiSlice'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import Meta from '../components/Meta'
 import { toast } from 'react-toastify'
 import { addToCart } from '../slices/cartSlice'
 
@@ -59,6 +60,7 @@ const ProductScreen = () => {
         <Message variant='danger'>{error?.data?.message || error.error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
           <Col md={5}>
             <Image src={product.image} alt={product.name} fluid />
@@ -125,7 +127,7 @@ const ProductScreen = () => {
             </Card>
           </Col>
         </Row>
-        <Row>
+        <Row className='review'>
           <Col md={6}>
             <h2 className='my-2'>Reviews</h2>
             {product.reviews.length === 0 && <Message>No Reviews</Message>}

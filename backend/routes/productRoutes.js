@@ -7,12 +7,15 @@ import {
   updateProduct,
   deleteProduct,
   createProductReview,
+  getTopProducts,
 } from '../controllers/productController.js'
 import checkObjectId from '../middleware/checkObjectId.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
 
 // Products Route
 router.route('/').get(getProducts).post(protect, admin, createProduct)
+
+router.get('/top', getTopProducts)
 
 // Single Product Route
 router
